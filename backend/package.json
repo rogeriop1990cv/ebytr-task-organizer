@@ -1,7 +1,7 @@
 {
-  "name": "ebytr-task-organizer",
+  "name": "task-organizer-backend",
   "version": "1.0.0",
-  "description": "Um sistema capaz de auxiliar as pessoas colaboradoras a se organizar e ter mais produtividade.",
+  "description": "backend do projeto task-organizer",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,12 +10,6 @@
     "type": "git",
     "url": "git+https://github.com/rogeriop1990cv/ebytr-task-organizer.git"
   },
-  "keywords": [
-    "trybe",
-    "todo",
-    "nodejs",
-    "MERN"
-  ],
   "author": "Rogerio P. Da Silva",
   "license": "MIT",
   "bugs": {
@@ -23,10 +17,10 @@
   },
   "homepage": "https://github.com/rogeriop1990cv/ebytr-task-organizer#readme",
   "dependencies": {
-    "git-commit-msg-linter": "^4.1.2"
+    "express": "^4.18.1",
+    "mongoose": "^6.3.3"
   },
-  "workspaces": [
-    "backend",
-    "frontend"
-  ]
+  "devDependencies": {
+    "git-commit-msg-linter": "^4.1.2"
+  }
 }
