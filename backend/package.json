@@ -5,9 +5,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "nyc mocha",
-    "test:unit": "nyc mocha ./test/unit/**/*_spec.js --exit",
-    "test:integration": "nyc mocha --timeout 15000 ./test/integration/**/*_spec.js --exit"
+    "test": "mocha ./test/unit/**/*_spec.js ./test/integration/**/*_spec.js --exit",
+    "test:unit": "mocha ./test/unit/**/*_spec.js --exit",
+    "coverage:unit": "nyc npm run test:unit",
+    "test:integration": "mocha --timeout 15000 ./test/integration/**/*_spec.js --exit",
+    "coverage:integration": "nyc npm run test:integration"
   },
   "repository": {
     "type": "git",
@@ -26,11 +28,12 @@
   "devDependencies": {
     "@types/chai": "^4.3.1",
     "@types/mocha": "^9.1.1",
+    "@types/sinon": "^10.0.11",
     "chai": "^4.3.6",
     "git-commit-msg-linter": "^4.1.2",
     "mocha": "^10.0.0",
     "nyc": "^15.1.0",
-    "simon": "^0.2.3",
+    "sinon": "^14.0.0",
     "supertest": "^6.2.3"
   }
 }

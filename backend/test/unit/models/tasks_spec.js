@@ -3,7 +3,7 @@ import { assert, expect } from 'chai';
 import TaskModel from '../../../src/models/tasks.js';
 import connection from '../../../database/connection.js';
 
-describe('Testa o Model', () => {
+describe('Task Model Unit Testing', () => {
   beforeEach(async () => {
     await connection('test');
   });
