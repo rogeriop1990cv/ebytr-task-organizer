@@ -1,6 +1,7 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 async function connection() {
-  await mongoose.connect('mongodb://localhost:27017/task');
+  return mongoose.connect('mongodb://localhost:27017/task');
 }
 
+export default connection;
