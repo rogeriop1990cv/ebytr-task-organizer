@@ -33,4 +33,20 @@ describe('Task Service Unit Testing', () => {
     assert.isArray(queryResult, 'Return must be an Array of objects');
     Sinon.restore();
   });
+
+  it('Test if the findOne method one records', async () => {
+    const mockDate = {
+      id: 10,
+      description: 'a simple description for the test of creating a new record in the database',
+    };
+
+    Sinon.stub(TaskModel, 'create').resolves(mockDate);
+    Sinon.stub(TaskModel, 'findOne').resolves([mockDate]);
+
+    const queryResult = await TaskService.findOne(mockDate.id);
+
+    expect(queryResult).length(1);
+    expect(10).to.be.equal(queryResult[0].id);
+    Sinon.restore();
+  });
 });
