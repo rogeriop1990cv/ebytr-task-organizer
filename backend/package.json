@@ -21,6 +21,7 @@
     "mongoose": "^6.3.3"
   },
   "devDependencies": {
-    "git-commit-msg-linter": "^4.1.2"
+    "git-commit-msg-linter": "^4.1.2",
+    "nodemon": "^2.0.16"
   }
 }
