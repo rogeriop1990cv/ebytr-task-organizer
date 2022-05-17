@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "nyc mocha",
-    "test:unit": "nyc mocha test/unit/**/*_spec.js",
+    "test:unit": "nyc mocha ./test/unit/**/*_spec.js --exit",
     "test:integration": "nyc mocha --timeout 15000 ./test/integration/**/*_spec.js --exit"
   },
   "repository": {
