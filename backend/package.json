@@ -5,7 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nyc mocha",
+    "test:unit": "nyc mocha test/unit/**/*_spec.js",
+    "test:integration": "nyc mocha --timeout 15000 ./test/integration/**/*_spec.js --exit"
   },
   "repository": {
     "type": "git",
@@ -22,9 +24,12 @@
     "mongoose": "^6.3.3"
   },
   "devDependencies": {
+    "@types/chai": "^4.3.1",
+    "@types/mocha": "^9.1.1",
     "chai": "^4.3.6",
     "git-commit-msg-linter": "^4.1.2",
     "mocha": "^10.0.0",
+    "nyc": "^15.1.0",
     "simon": "^0.2.3",
     "supertest": "^6.2.3"
   }
