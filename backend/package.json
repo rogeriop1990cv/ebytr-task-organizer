@@ -22,6 +22,10 @@
     "mongoose": "^6.3.3"
   },
   "devDependencies": {
-    "git-commit-msg-linter": "^4.1.2"
+    "chai": "^4.3.6",
+    "git-commit-msg-linter": "^4.1.2",
+    "mocha": "^10.0.0",
+    "simon": "^0.2.3",
+    "supertest": "^6.2.3"
   }
 }
