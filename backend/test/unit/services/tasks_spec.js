@@ -49,4 +49,50 @@ describe('Task Service Unit Testing', () => {
     expect(10).to.be.equal(queryResult[0].id);
     Sinon.restore();
   });
+
+  it('Test if the update method', async () => {
+    const mockDate = {
+      id: 10,
+      description: 'a simple description for the test of creating a new record in the database',
+    };
+
+    const mockDateUpdate = {
+      id: 10,
+      description: 'Update',
+    };
+
+    Sinon.stub(TaskModel, 'create').resolves(mockDate);
+    Sinon.stub(TaskModel, 'findOne').resolves([mockDateUpdate]);
+    Sinon.stub(TaskModel, 'updateOne').resolves({});
+
+    const queryResult = await TaskService.update(mockDate.id, mockDateUpdate);
+    const queryResultOne = await TaskService.findOne(mockDate.id);
+
+    expect([queryResult]).length(1);
+    expect(queryResultOne.description).to.be.equal(queryResult.description);
+    Sinon.restore();
+  });
+
+  it('Test if the update method', async () => {
+    const mockDate = {
+      id: 10,
+      description: 'a simple description for the test of creating a new record in the database',
+    };
+
+    const mockDateUpdate = {
+      id: 10,
+      description: 'Update',
+    };
+
+    Sinon.stub(TaskModel, 'create').resolves(mockDate);
+    Sinon.stub(TaskModel, 'findOne').resolves([mockDateUpdate]);
+    Sinon.stub(TaskModel, 'updateOne').resolves({});
+
+    const queryResult = await TaskService.update(mockDate.id, mockDateUpdate);
+    const queryResultOne = await TaskService.findOne(mockDate.id);
+
+    expect([queryResult]).length(1);
+    expect(queryResultOne.description).to.be.equal(queryResult.description);
+    Sinon.restore();
+  });
 });
