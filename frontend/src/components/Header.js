@@ -16,8 +16,8 @@ function Header() {
         <img className="header__image" src={logo} alt="logo" />
         <div className="header__text">Task Organizer</div>
       </div>
-      <div className="header__welcome">Bem Vindo</div>
-      <div className="header__date">{ date }</div>
+      <div className="header__welcome">Bem-vindo Usuário</div>
+      <div className="header__date"><div>{ date }</div></div>
     </header>
   );
 }

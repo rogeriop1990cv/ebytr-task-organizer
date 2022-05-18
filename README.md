@@ -5,7 +5,6 @@ Um sistema capaz de auxiliar as pessoas colaboradoras a se organizar e ter mais 
 
 ![Logo](images/logo.png)
 
-
 ## Funcionalidades
 
 - Você pode Visualizar sua lista de tarefas.
