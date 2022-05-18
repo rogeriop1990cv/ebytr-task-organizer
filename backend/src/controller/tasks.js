@@ -1,6 +1,6 @@
 import TaskService from '../service/tasks.js';
 
-const get = async (req, res) => {
+const get = async (_req, res) => {
   try {
     const allTasks = await TaskService.find();
     return res.status(200).json(allTasks);
@@ -9,6 +9,16 @@ const get = async (req, res) => {
   }
 };
 
+const post = async (req, res) => {
+  try {
+    const createdTasks = await TaskService.create(req.body);
+    return res.status(201).json(createdTasks);
+  } catch (error) {
+    return res.status(400).json({ message: 'Error database' });
+  }
+};
+
 export default {
   get,
+  post,
 };
