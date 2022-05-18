@@ -2,9 +2,11 @@
   "name": "task-organizer-backend",
   "version": "1.0.0",
   "description": "backend do projeto task-organizer",
-  "main": "index.js",
+  "main": "./src/api/server.js",
   "type": "module",
   "scripts": {
+    "start": "node .",
+    "dev": "nodemon .",
     "test": "mocha ./test/unit/**/*_spec.js ./test/integration/**/*_spec.js --exit",
     "test:unit": "mocha ./test/unit/**/*_spec.js --exit",
     "coverage:unit": "nyc npm run test:unit",
@@ -32,6 +34,7 @@
     "chai": "^4.3.6",
     "git-commit-msg-linter": "^4.1.2",
     "mocha": "^10.0.0",
+    "nodemon": "^2.0.16",
     "nyc": "^15.1.0",
     "sinon": "^14.0.0",
     "supertest": "^6.2.3"
