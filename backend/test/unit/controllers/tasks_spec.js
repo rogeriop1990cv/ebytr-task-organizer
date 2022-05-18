@@ -50,4 +50,26 @@ describe('Task Controller Unit Testing', () => {
     expect(res.json.calledWith(mockResultPost)).to.be.equal(true);
     Sinon.restore();
   });
+
+  it('should "PUT /:id" method return status 200', async () => {
+    Sinon.stub(TaskService, 'update').resolves({});
+    const req = { body: mockResultBody, params: { id: 1 } };
+    const res = mockResponse();
+
+    await TaskController.put(req, res);
+
+    expect(res.status.calledWith(200)).to.be.equal(true);
+    Sinon.restore();
+  });
+
+  it('should "DELETE /:id" method return 200', async () => {
+    Sinon.stub(TaskService, 'destroy').resolves({});
+    const req = { params: { id: 1 } };
+    const res = mockResponse();
+
+    await TaskController.destroy(req, res);
+
+    expect(res.status.calledWith(200)).to.be.equal(true);
+    Sinon.restore();
+  });
 });
