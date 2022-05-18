@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import { assert, expect } from 'chai';
-import TaskModel from '../../../src/models/tasks.js';
+import TaskModel from '../../../src/model/tasks.js';
 import connection from '../../../database/connection.js';
 
 describe('Task Model Unit Testing', () => {

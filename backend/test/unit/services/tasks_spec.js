@@ -1,7 +1,7 @@
 import { assert, expect } from 'chai';
 import Sinon from 'sinon';
-import TaskService from '../../../src/services/tasks.js';
-import TaskModel from '../../../src/models/tasks.js';
+import TaskService from '../../../src/service/tasks.js';
+import TaskModel from '../../../src/model/tasks.js';
 
 describe('Task Service Unit Testing', () => {
   it('Test if it TaskModel exist', async () => {
@@ -62,37 +62,32 @@ describe('Task Service Unit Testing', () => {
     };
 
     Sinon.stub(TaskModel, 'create').resolves(mockDate);
-    Sinon.stub(TaskModel, 'findOne').resolves([mockDateUpdate]);
+    Sinon.stub(TaskModel, 'findOne').resolves(mockDateUpdate);
     Sinon.stub(TaskModel, 'updateOne').resolves({});
 
     const queryResult = await TaskService.update(mockDate.id, mockDateUpdate);
     const queryResultOne = await TaskService.findOne(mockDate.id);
 
     expect([queryResult]).length(1);
-    expect(queryResultOne.description).to.be.equal(queryResult.description);
+    expect(queryResultOne.description).to.be.equal(mockDateUpdate.description);
     Sinon.restore();
   });
 
-  it('Test if the update method', async () => {
+  it('Test if the destroy method', async () => {
     const mockDate = {
       id: 10,
       description: 'a simple description for the test of creating a new record in the database',
     };
 
-    const mockDateUpdate = {
-      id: 10,
-      description: 'Update',
-    };
-
     Sinon.stub(TaskModel, 'create').resolves(mockDate);
-    Sinon.stub(TaskModel, 'findOne').resolves([mockDateUpdate]);
-    Sinon.stub(TaskModel, 'updateOne').resolves({});
+    Sinon.stub(TaskModel, 'findOne').resolves([]);
+    Sinon.stub(TaskModel, 'deleteOne').resolves({});
 
-    const queryResult = await TaskService.update(mockDate.id, mockDateUpdate);
+    await TaskService.create(mockDate);
+    await TaskService.destroy(mockDate.id);
     const queryResultOne = await TaskService.findOne(mockDate.id);
 
-    expect([queryResult]).length(1);
-    expect(queryResultOne.description).to.be.equal(queryResult.description);
+    expect(queryResultOne).length(0);
     Sinon.restore();
   });
 });
