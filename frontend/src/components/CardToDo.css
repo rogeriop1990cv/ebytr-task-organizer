@@ -60,6 +60,15 @@ cardToDo__status */
   font-size: 32px;
   align-items: center;
   justify-content: center;
+  margin-top: 10px;
   height: 100px;
 }
 
+.cardToDo__trash {
+  margin-left: 85%;
+}
+
+.cardToDo__button {
+  border: none;
+  cursor: pointer;
+}
