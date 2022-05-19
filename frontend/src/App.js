@@ -20,7 +20,24 @@ function App() {
   }, []);
 
   const handlerRemove = (event) => {
-    console.log(event.target.parentElement.id);
+    const { id } = event.target.parentElement;
+    setToDoList(toDoList.filter((item) => item._id !== id));
+    (async () => {
+      fetch(`http://localhost:3001/${id}`, {
+        method: 'DELETE',
+      });
+    })();
+  };
+
+  const handlerAdd = () => {
+    (async () => {
+      const date = await fetch('http://localhost:3001/', {
+        method: 'POST',
+      });
+      const newTask = await date.json();
+      toDoList.push(newTask);
+      setToDoList([...toDoList]);
+    })();
   };
 
   return (
@@ -30,18 +47,13 @@ function App() {
       <div className="container__cards">
         {/* Card de add task */}
         <CardToDo>
-          <ImgAddToDo />
-          <div className="cardToDo__info">
-            <div id="status" className="cardToDo__status">
-              <p>Adicionar</p>
-            </div>
-          </div>
+          <ImgAddToDo handlerAdd={handlerAdd} />
         </CardToDo>
 
         {
           toDoList.map((task) => (
             <CardToDo key={task._id}>
-              <CardDescription description={task.description} />
+              <CardDescription description={task.description} id={task._id} />
               <CardInfo
                 handlerRemove={handlerRemove}
                 id={task._id}
