@@ -28,14 +28,14 @@ cardToDo__status */
   overflow: hidden;
 }
 
-.cardToDo__description {
+.cardToDo__description p {
   width: 250px;
   word-wrap: break-word;
   padding: 5px;
   color: var(--text-bg-color);
 }
 
-.cardToDo__date, .cardToDo__status, .cardToDo__select, .cardToDo__option {
+.cardToDo__date, .cardToDo__status, p, .cardToDo__select, .cardToDo__option {
   color: var(--background-div-color);
 }
 
