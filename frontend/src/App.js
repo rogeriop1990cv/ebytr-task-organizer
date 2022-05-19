@@ -22,6 +22,7 @@ function App() {
   const handlerRemove = (event) => {
     console.log(event.target.parentElement.id);
   };
+
   return (
     <div className="container">
       <Header />

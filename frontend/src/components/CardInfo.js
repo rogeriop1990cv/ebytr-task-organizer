@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 import trash from '../images/trash.svg';
 
 const formatDate = (date) => {
@@ -11,15 +11,31 @@ const formatDate = (date) => {
 };
 
 function CardInfo({
-  date, status, handlerRemove, id,
+  date, handlerRemove, id, status,
 }) {
+  const [statusSelected, setStatusSelected] = useState(status);
+
+  const handleChange = (event) => {
+    setStatusSelected(event.target.value);
+  };
+
   return (
     <div className="cardToDo__info">
       <div className="cardToDo__date">
         { formatDate(date) }
       </div>
-      <div id="status" className="cardToDo__status">
-        <p>{ status }</p>
+      <div className="cardToDo__status">
+        <select
+          name="status"
+          id="status"
+          onChange={handleChange}
+          className="cardToDo__select"
+          value={statusSelected}
+        >
+          <option className="cardToDo__option" value="Pendente">Pendente</option>
+          <option className="cardToDo__option" value="Em andamento">Em andamento</option>
+          <option className="cardToDo__option" value="Pronto">Pronto</option>
+        </select>
       </div>
       <div className="cardToDo__trash">
         <button id={id} className="cardToDo__button" onClick={handlerRemove} type="button">
@@ -40,9 +56,9 @@ CardInfo.defaultProps = {
 
 CardInfo.propTypes = {
   date: PropTypes.string,
-  status: PropTypes.string,
   handlerRemove: PropTypes.func,
   id: PropTypes.string,
+  status: PropTypes.string,
 };
 
 export default CardInfo;
