@@ -28,14 +28,14 @@ cardToDo__status */
   overflow: hidden;
 }
 
-.cardToDo__description p {
+.cardToDo__description {
   width: 250px;
   word-wrap: break-word;
   padding: 5px;
   color: var(--text-bg-color);
 }
 
-.cardToDo__date, .cardToDo__status, p{
+.cardToDo__date, .cardToDo__status, .cardToDo__select, .cardToDo__option {
   color: var(--background-div-color);
 }
 
@@ -48,6 +48,26 @@ cardToDo__status */
   border-radius: 0px 0px 5px 5px;
 }
 
+.cardToDo__select {
+  font-size: 32px;
+  display: inline;
+  border: 0;
+  width: auto;
+  appearance: none;
+  outline: none;
+  border: none;
+  transition: all .4s ease-in-out;
+}
+
+.cardToDo__option {
+  text-align: center;
+
+  border: 0;
+  padding: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
 .cardToDo__date {
   height: 5px;
   font-size: 18px;
@@ -57,8 +77,8 @@ cardToDo__status */
 
 .cardToDo__status {
   display: flex;
-  font-size: 32px;
   align-items: center;
+  font-size: 32px;
   justify-content: center;
   margin-top: 10px;
   height: 100px;
