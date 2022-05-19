@@ -12,6 +12,8 @@ cardToDo__status */
   height: 350px;
   width: 250px;
   border-radius: 5px;
+  margin-left: 50px;
+  margin-bottom: 73px;
 }
 
 .cardToDo__description {
