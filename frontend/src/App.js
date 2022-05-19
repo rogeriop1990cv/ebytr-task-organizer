@@ -19,6 +19,9 @@ function App() {
     })();
   }, []);
 
+  const handlerRemove = (event) => {
+    console.log(event.target.parentElement.id);
+  };
   return (
     <div className="container">
       <Header />
@@ -27,14 +30,23 @@ function App() {
         {/* Card de add task */}
         <CardToDo>
           <ImgAddToDo />
-          <CardInfo date="" status="Adicionar" />
+          <div className="cardToDo__info">
+            <div id="status" className="cardToDo__status">
+              <p>Adicionar</p>
+            </div>
+          </div>
         </CardToDo>
 
         {
           toDoList.map((task) => (
             <CardToDo key={task._id}>
               <CardDescription description={task.description} />
-              <CardInfo date={task.createAt} status={task.status} />
+              <CardInfo
+                handlerRemove={handlerRemove}
+                id={task._id}
+                date={task.createAt}
+                status={task.status}
+              />
             </CardToDo>
           ))
         }
