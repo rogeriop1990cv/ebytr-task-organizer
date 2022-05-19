@@ -2,13 +2,21 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import trash from '../images/trash.svg';
 
+const formatDate = (date) => {
+  if (!date) {
+    return null;
+  }
+  const newDate = new Date(date);
+  return newDate.toLocaleDateString();
+};
+
 function CardInfo({
   date, status, handlerRemove, id,
 }) {
   return (
     <div className="cardToDo__info">
       <div className="cardToDo__date">
-        { date }
+        { formatDate(date) }
       </div>
       <div id="status" className="cardToDo__status">
         <p>{ status }</p>
