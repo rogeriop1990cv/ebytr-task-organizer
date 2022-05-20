@@ -1,0 +1,13 @@
+.sortbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 76px;
+}
+
+.sortbar__button {
+  border: none;
+  font-size: 22px;
+  margin: 15px;
+  cursor: pointer;
+}
