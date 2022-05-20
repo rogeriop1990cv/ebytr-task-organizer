@@ -13,6 +13,11 @@ Api tem como objetivo criar, atualiza, delete e lista todas ao tarefas no banco 
 - Node.js é um software de código aberto, multiplataforma, baseado no interpretador V8 do Google e que permite a execução de códigos JavaScript fora de um navegador web. 
 
 ## Como executa a API.
+Criando um container docker pra o mongoDB
+
+```bash
+docker run --restart always --name mongodb -p 27017:27017 -d mongo
+```
 
 Clone o projeto:
 ```bash
