@@ -15,8 +15,7 @@
 .container__cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: left;
   width: 1339px;
   height: 776px;
-  margin-left: 50px;
 }
