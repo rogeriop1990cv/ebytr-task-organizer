@@ -35,8 +35,21 @@ function App() {
         method: 'POST',
       });
       const newTask = await date.json();
-      toDoList.push(newTask);
+      toDoList.unshift(newTask);
       setToDoList([...toDoList]);
+    })();
+  };
+
+  const handlerUpdate = (id, body) => {
+    (async () => {
+      await fetch(`http://localhost:3001/${id}`, {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        method: 'PUT',
+        body: JSON.stringify(body),
+      });
     })();
   };
 
@@ -53,8 +66,13 @@ function App() {
         {
           toDoList.map((task) => (
             <CardToDo key={task._id}>
-              <CardDescription description={task.description} id={task._id} />
+              <CardDescription
+                handlerUpdate={handlerUpdate}
+                description={task.description}
+                id={task._id}
+              />
               <CardInfo
+                handlerUpdate={handlerUpdate}
                 handlerRemove={handlerRemove}
                 id={task._id}
                 date={task.createAt}

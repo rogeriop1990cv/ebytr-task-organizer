@@ -11,12 +11,13 @@ const formatDate = (date) => {
 };
 
 function CardInfo({
-  date, handlerRemove, id, status,
+  date, handlerRemove, id, status, handlerUpdate,
 }) {
   const [statusSelected, setStatusSelected] = useState(status);
 
   const handleChange = (event) => {
     setStatusSelected(event.target.value);
+    handlerUpdate(id, { status: event.target.value });
   };
 
   return (
@@ -51,12 +52,14 @@ CardInfo.defaultProps = {
   date: '',
   status: 'Status',
   handlerRemove: () => {},
+  handlerUpdate: () => {},
 
 };
 
 CardInfo.propTypes = {
   date: PropTypes.string,
   handlerRemove: PropTypes.func,
+  handlerUpdate: PropTypes.func,
   id: PropTypes.string,
   status: PropTypes.string,
 };

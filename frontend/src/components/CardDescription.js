@@ -10,21 +10,22 @@ const textAreaElement = (event, func) => {
   parentTag.removeChild(event.target);
   parentTag.innerHTML = `
   <textarea
-      name="description"
-      id=${`t-${idTag}`}
-      cols="30"
-      rows="10"
-    >
-      ${event.target.innerText.trim()}
-    </textarea>
+  name="description"
+  id=${`t-${idTag}`}
+  cols="30"
+  rows="10"
+  >
+  ${event.target.innerText.trim()}
+  </textarea>
   `;
+
   document.getElementById(`t-${idTag}`).select();
   document.getElementById(`t-${idTag}`).classList.add('cardToDo__textarea');
   document.getElementById(`t-${idTag}`).focus();
   document.getElementById(`t-${idTag}`).addEventListener('blur', func);
 };
 
-const paragraphElement = (event, fuc) => {
+const paragraphElement = (event, fun0, func1) => {
   const parentTag = event.target.parentElement;
   const idTag = event.target.id.replace('t-', '');
   parentTag.removeChild(event.target);
@@ -33,16 +34,23 @@ const paragraphElement = (event, fuc) => {
   ${event.target.value.trim()}
   </p>
   `;
-  document.getElementById(`p-${idTag}`).addEventListener('click', fuc);
-  // record date in the db
+  const bodyUpdate = {
+    [parentTag.getAttribute('name')]: event.target.value.trim(),
+  };
+  document.getElementById(`p-${idTag}`).addEventListener('click', fun0);
+  func1(idTag, bodyUpdate);
 };
 
-function CardDescription({ description, id }) {
-  const handlerParagraphToTextArea = (event) => textAreaElement(event, handlerTextAreaToParagraph);
-  const handlerTextAreaToParagraph = (event) => paragraphElement(event, handlerParagraphToTextArea);
+function CardDescription({ description, id, handlerUpdate }) {
+  const handlerParagraphToTextArea = (event) => {
+    textAreaElement(event, handlerTextAreaToParagraph);
+  };
+  const handlerTextAreaToParagraph = (event) => {
+    paragraphElement(event, handlerParagraphToTextArea, handlerUpdate);
+  };
 
   return (
-    <div className="cardToDo__description">
+    <div className="cardToDo__description" name="description">
       <p
         id={`p-${id}`}
         onClick={handlerParagraphToTextArea}
@@ -55,12 +63,14 @@ function CardDescription({ description, id }) {
 
 CardDescription.defaultProps = {
   description: 'Uma breve descrição.',
+  handlerUpdate: () => {},
   id: '0',
 
 };
 
 CardDescription.propTypes = {
   description: PropTypes.string,
+  handlerUpdate: PropTypes.func,
   id: PropTypes.string,
 };
 
