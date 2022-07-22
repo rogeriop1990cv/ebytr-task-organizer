@@ -4,8 +4,8 @@
   "description": "Um sistema capaz de auxiliar as pessoas colaboradoras a se organizar e ter mais produtividade.",
   "main": "index.js",
   "scripts": {
-    "frontend": "npm run start -w frontend",
-    "backend": "npm run start -w backend",
+    "frontend": "npm start -w frontend",
+    "backend": "npm start -w backend",
     "start": "npm run backend & npm run frontend"
   },
   "repository": {
