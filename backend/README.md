@@ -1,7 +1,7 @@
 
 # Api Task Organizer
 
-Api tem como objetivo criar, atualiza, delete e lista todas ao tarefas no banco de dados.
+Api tem como objetivo criar, atualiza, delete e listar todas ao tarefas no banco de dados.
 
 
 ## Stack utilizada
@@ -12,8 +12,9 @@ Api tem como objetivo criar, atualiza, delete e lista todas ao tarefas no banco 
 **NodeJS** 
 - Node.js é um software de código aberto, multiplataforma, baseado no interpretador V8 do Google e que permite a execução de códigos JavaScript fora de um navegador web. 
 
-## Como executa a API.
-Criando um container docker pra o mongoDB
+## Rodando localmente
+
+Criando um container **Docker** pra o **mongoDB**
 
 ```bash
 docker run --restart always --name mongodb -p 27017:27017 -d mongo
@@ -28,7 +29,7 @@ Depois entre do diretoria que foi criado.
   cd ebytr-task-organizer
 ```
 
-Instale as dependencias:
+Instale as dependências:
 ```bash
   npm install
 ```

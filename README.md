@@ -14,7 +14,13 @@ Um sistema capaz de auxiliar as pessoas colaboradoras a se organizar e ter mais 
 - Atualizar uma tarefa da lista
 - Muda os Status da tarefa pra `Pendente`, `Em andamento` ou `Pronto`
 
-## Como o Projeto.
+## Rodando localmente
+
+Criando um container **Docker** pra o **mongoDB**
+
+```bash
+docker run --restart always --name mongodb -p 27017:27017 -d mongo
+```
 
 Clone o projeto:
 ```bash
@@ -25,7 +31,7 @@ Depois entre do diretoria que foi criado.
   cd ebytr-task-organizer
 ```
 
-Instale as dependencias:
+Instale as dependências:
 ```bash
   npm install
 ```  
